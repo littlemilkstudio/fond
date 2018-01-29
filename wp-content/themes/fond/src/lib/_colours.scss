@@ -1,0 +1,61 @@
+/*
+ *  COLOURS
+ *  A collection of all the colours used throughout the site as individual variables or grouped into palettes
+ *
+ *  
+*/
+
+
+/* Hollis*/
+$white       : #FFFFFF;
+$concrete    : #F2F2F2; 
+$nobel       : #B3B3B3;
+$dustyGrey   : #999999;
+$chicago     : #635D59;
+$tundora     : #4d4d4d;
+$masala      : #444240;
+$mineShaft   : #333333;
+$shipGray    : #37333D;
+$balticSea   : #2D2C30; 
+$shark       : #1D1D1E; 
+$woodsmoke   : #171718;
+$teak        : #B6A269;
+
+/* other */
+$twitter     : #32abe2;
+$facebook    : #3a5998;
+$linkedin    : #007bb5;
+
+/* Palettes */
+
+$hollis-palette: (
+  'white'       : $white,
+  'concrete'    : $concrete,
+  'nobel'       : $nobel,
+  'chicago'     : $chicago,
+  'tundora'     : $tundora,
+  'masala'      : $masala,
+  'mineShaft'   : $mineShaft,
+  'shipGray'    : $shipGray,
+  'balticSea'   : $balticSea,
+  'shark'       : $shark ,
+  'woodsmoke'   : $woodsmoke,
+  'dustyGrey'   : $dustyGrey,
+  'teak'        : $teak
+);
+
+$text-palette: (
+  'whiteHeader'    : $white,
+  'whiteHeaderAlt' : $concrete,
+  'whiteCopy'      : $white,
+  'whiteButton'    : $white,
+  'greyHeader'     : $mineShaft,
+  'greyCopy'       : $tundora,
+  'greyCopyFooter' : $dustyGrey
+);
+
+$social-media-colours: (
+  'twitter'     : $twitter,
+  'facebook'    : $facebook,
+  'linkedin'    : $linkedin
+);
