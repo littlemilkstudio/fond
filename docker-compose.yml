@@ -1,0 +1,55 @@
+#
+#   For Local use only
+#
+#   IMPORTANT:
+#   Change WORDPRESS_DB_NAME for relevant dir  
+#
+
+version: "3"
+services:
+
+  wordpress:
+    depends_on:
+      - db
+    build: ./wordpress
+    restart: always
+    volumes:
+      - ./wordpress/wp-content:/var/www/html/wp-content
+    environment:
+      WORDPRESS_DB_HOST: db:3306
+      WORDPRESS_DB_PASSWORD: LocalPass!11
+      WORDPRESS_DB_NAME: fond
+    ports:
+      - 80:80
+      - 443:443
+    networks:
+      - back  
+
+  db:
+    image: mariadb
+    restart: always
+    volumes: 
+      - local_db_data:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: LocalPass!11
+    networks:
+      - back
+
+  phpmyadmin:
+    depends_on: 
+      - db
+    image: phpmyadmin/phpmyadmin:latest
+    restart: always
+    ports:
+      - 8080:80
+    environment:
+      PMA_HOST: db
+      MYSQL_ROOT_PASSWORD: LocalPass!11
+    networks:
+      - back 
+
+networks:
+  back:
+
+volumes:
+  local_db_data:

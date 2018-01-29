@@ -1,0 +1,26 @@
+/*
+ *  MIXINS
+ *
+ *  Notes: Try to avoid using 'fixed' attributes within mixins,
+ *         i.e. only use mixins to pass in a value
+ */
+
+@function hollis-colour($key: 'white') {
+  @return map-get($hollis-palette, $key);
+}
+
+@function media-colour($key: 'twitter') {
+  @return map-get($social-media-palette, $key);
+}
+
+@function text-colour($key: 'whiteHeader') {
+  @return map-get($text-palette, $key);
+}
+
+@mixin bp($bp) {
+	@media screen and (max-width: $bp) {
+			&, ._ {
+				@content;
+			}
+		}
+}
