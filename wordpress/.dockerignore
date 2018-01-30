@@ -1,0 +1,9 @@
+# Local config
+docker-compose.yml
+docker-compose.yaml
+
+# Dependency directories
+node_modules
+jspm_packages
+yarn.lock
+package-lock.json
