@@ -1,0 +1,28 @@
+mysql:
+  environment:
+    - 'MYSQL_ROOT_PASSWORD=ecs9P^!TcCSU7STij4'
+  image: 'mariadb:latest'
+  volumes:
+    - /var/lib/mysql:/var/lib/mysql
+  
+web:
+  autoredeploy: true
+  environment:
+    - WORDPRESS_DB_NAME=fond
+    - 'WORDPRESS_DB_PASSWORD=ecs9P^!TcCSU7STij4'
+  image: 'bramblestudio/incrediblefoods:latest'
+  links:
+    - mysql
+  ports:
+    - '80:80'
+  working_dir: /var/www/html
+
+authorizedkeys:
+  image: dockercloud/authorizedkeys
+  deployment_strategy: every_node
+  autodestroy: always
+  environment:
+    - AUTHORIZED_KEYS=ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQC4zdnRpiEqFbGwbzkmIRJs/vKaw2fcCHECrcn3pD4arsX+NVvBcyQLSFvlIEvcb2q4Xze5X7vvValOn8RjJFngzowJbFn+lzVXJo6H4UDPVourG23oDyXfnfN/H6SNYV3rSuY0ZGNfe6OJ4Tf+jOwSaCw2i6MI0+S9TXc3o1pPwucLdiiaA11IlqtLyym8WiV/82bFzhXTf3Coy4r7D3kZ75zFD07BnSuuKS8ZXUPDCAuvsozREpyC//8wgtpmWf3t7eJbvRqJ2PhlfxyUkvPVHyXN6X/loiZ0r5HFXoYZpfto6TkmWJxzFNAIR55bThyU+rMZf3XySogtbj5KTlEV1M5DqceYDynU9ywYSYZ/WVnVJdQJJo3eRlirLoLRwmZDInp9iBbNCYQRPiFvF2C8FyfVIzmmmm8ht4i58cOf/d/xnhxyZWYMJD6t0DJVY70Zr3nMJ8tXEwRavvHMbabxGXicF+EWtMEoL1zC7Rwmch55zXlPqxExfneosQoL9nbsQFsCBCm2budFsbnjT4Kb2e+7vzVRUHoCb59aLWYEOz2TZr5IH8Q7KQhsrWzJCWMI8Gq3ojtkynK24iM/8kC2OrO1ERCd7m1qfv+7SUhDXMjazjrSR8xizF+huAjCdJacjVQ13rpnkcakEjguqMyHx66bCHFE+HKRLHo5itlx3w== max@bramble.studio
+
+  volumes:
+    - /root:/user:rw

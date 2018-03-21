@@ -1,6 +1,8 @@
 # Local config
 docker-compose.yml
 docker-compose.yaml
+stack.yml
+stack.yaml
 
 # Dependency directories
 node_modules
